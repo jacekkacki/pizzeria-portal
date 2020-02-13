@@ -36,7 +36,7 @@ function App() {
           />
           <Route 
             exact
-            path={`${process.env.PUBLIC_URL}/tables/booking/booking/:id`}
+            path={`${process.env.PUBLIC_URL}/tables/booking/:id`}
             component={TablesBookingEdit} 
           />
           <Route 
@@ -46,7 +46,7 @@ function App() {
           />
           <Route 
             exact
-            path={`${process.env.PUBLIC_URL}/tables/events/event/:id`}
+            path={`${process.env.PUBLIC_URL}/tables/events/:id`}
             component={TablesEventsEdit} 
           />
           <Route 
