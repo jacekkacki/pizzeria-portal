@@ -1,11 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './WaiterOrderEdit.module.scss';
 
-
-const WaiterOrderEdit = () => (
+const WaiterOrderEdit = ({ match }) => (
   <div className={styles.component}>
     <h2>WaiterOrderEdit view</h2>
+    <p>{`Id is: ${match.params.id}`}</p>
   </div>
 );
+
+WaiterOrderEdit.propTypes = {
+  match: PropTypes.string,
+};
 
 export default WaiterOrderEdit;
