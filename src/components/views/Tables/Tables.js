@@ -2,29 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Tables.module.scss';
 
+import Button from '@material-ui/core/Button';
+
 const Tables = () => (
   <div className={styles.component}>
     <h2>Tables view</h2>
-    <Link 
-      to={`${process.env.PUBLIC_URL}/tables/booking/new`}
-      className={styles.link}>
-       New Booking
-    </Link>
-    <Link 
-      to={`${process.env.PUBLIC_URL}/tables/book/123abc`}
-      className={styles.link}>
-       Edit Booking
-    </Link>
-    <Link 
-      to={`${process.env.PUBLIC_URL}/tables/events/new`}
-      className={styles.link}>
-       New Events
-    </Link>
-    <Link 
-      to={`${process.env.PUBLIC_URL}/tables/event/456def`}
-      className={styles.link}>
-       Edit Event
-    </Link>
+    <Button component={Link} className={styles.button} color='primary' variant='outlined'
+      to={`${process.env.PUBLIC_URL}/tables/booking/new`}>New Booking
+    </Button>
+    <Button component={Link} className={styles.button} color='primary' variant='outlined'
+      to={`${process.env.PUBLIC_URL}/tables/book/123abc`}>Edit Booking
+    </Button>
+    <Button component={Link} className={styles.button} color='primary' variant='outlined'
+      to={`${process.env.PUBLIC_URL}/tables/events/new`}>New Events
+    </Button>
+    <Button component={Link} className={styles.button} color='primary' variant='outlined'
+      to={`${process.env.PUBLIC_URL}/tables/event/456def`}>Edit Event
+    </Button>
   </div>
 );
 

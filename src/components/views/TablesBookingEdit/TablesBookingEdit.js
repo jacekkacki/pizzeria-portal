@@ -10,7 +10,7 @@ const TablesBookingEdit = ({ match }) => (
 );
 
 TablesBookingEdit.propTypes = {
-  match: PropTypes.string,
+  match: PropTypes.object,
 };
 
 export default TablesBookingEdit;

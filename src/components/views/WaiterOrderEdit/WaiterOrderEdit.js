@@ -10,7 +10,7 @@ const WaiterOrderEdit = ({ match }) => (
 );
 
 WaiterOrderEdit.propTypes = {
-  match: PropTypes.string,
+  match: PropTypes.object,
 };
 
 export default WaiterOrderEdit;

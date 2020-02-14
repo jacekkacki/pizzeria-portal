@@ -10,7 +10,7 @@ const TablesEventsEdit = ({ match }) => (
 );
 
 TablesEventsEdit.propTypes = {
-  match: PropTypes.string,
+  match: PropTypes.object,
 };
 
 export default TablesEventsEdit;
