@@ -3,3 +3,17 @@
 .component {
   padding: $base-size;
 }
+
+.form {
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.textField {
+  margin-right: 10px;
+}
+
+.button {
+  margin: 20px 0;
+}
