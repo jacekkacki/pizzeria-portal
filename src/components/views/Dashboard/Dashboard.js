@@ -24,7 +24,7 @@ const todayRes = [
 const Dashboard = () => (
   <Paper className={styles.component}>
     <h2>Dashboard view</h2>
-    <h3>Today statistic</h3>
+    <h3>Todays statistic</h3>
     <Table className={styles.table}>
       <TableHead>
         <TableRow>

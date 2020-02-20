@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Waiter.module.scss';
+import { Link } from 'react-router-dom';
+
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -17,6 +19,7 @@ class Waiter extends React.Component {
       error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     }),
     tables: PropTypes.any,
+    updateTable: PropTypes.func,
   }
 
   componentDidMount(){
@@ -24,34 +27,59 @@ class Waiter extends React.Component {
     fetchTables();
   }
 
-  renderActions(status){
+  waiterClick(tableId, status){
+    this.props.updateTable(tableId, status);
+  }
+
+  renderActions(status, tableId){
     switch (status) {
       case 'free':
         return (
           <>
-            <Button>thinking</Button>
-            <Button>new order</Button>
+            <Button component={Link} className={styles.button} color="primary" variant="outlined"
+              onClick={() => { this.waiterClick(tableId, 'thinking'); }}>
+          thinking
+            </Button>
+            <Button component={Link} className={styles.button} color="primary" variant="outlined"
+              onClick={() => { this.waiterClick(tableId, 'new order'); }}>
+          new order
+            </Button>
           </>
         );
       case 'thinking':
         return (
-          <Button>new order</Button>
+          <Button component={Link} className={styles.button} color="primary" variant="outlined"
+            onClick={() => { this.waiterClick(tableId, 'new order'); }}>
+                new order
+          </Button>
         );
       case 'ordered':
         return (
-          <Button>prepared</Button>
+          <Button component={Link} className={styles.button} color="primary" variant="outlined"
+            onClick={() => { this.waiterClick(tableId, 'prepared'); }}>
+                prepared
+          </Button>
         );
       case 'prepared':
         return (
-          <Button>delivered</Button>
+          <Button component={Link} className={styles.button} color="primary" variant="outlined"
+            onClick={() => { this.waiterClick(tableId, 'delivered'); }}>
+                delivered
+          </Button>
         );
       case 'delivered':
         return (
-          <Button>paid</Button>
+          <Button component={Link} className={styles.button} color="primary" variant="outlined"
+            onClick={() => { this.waiterClick(tableId, 'paid'); }}>
+                paid
+          </Button>
         );
       case 'paid':
         return (
-          <Button>free</Button>
+          <Button component={Link} className={styles.button} color="primary" variant="outlined"
+            onClick={() => { this.waiterClick(tableId, 'free'); }}>
+                free
+          </Button>
         );
       default:
         return null;
@@ -77,6 +105,13 @@ class Waiter extends React.Component {
     } else {
       return (
         <Paper className={styles.component}>
+          <h2>Waiter view</h2>
+          <Button component={Link} className={styles.button} color='primary' variant='outlined'
+            to={`${process.env.PUBLIC_URL}/waiter/order/new`}>New Order
+          </Button>
+          <Button component={Link} className={styles.button} color='primary' variant='outlined'
+            to={`${process.env.PUBLIC_URL}/waiter/order/123abc`}>Edit Order
+          </Button>
           <Table>
             <TableHead>
               <TableRow>
@@ -103,7 +138,7 @@ class Waiter extends React.Component {
                     )}
                   </TableCell>
                   <TableCell>
-                    {this.renderActions(row.status)}
+                    {this.renderActions(row.status, row.id)}
                   </TableCell>
                 </TableRow>
               ))}
