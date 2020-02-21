@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const cors = require('cors');
 const jsonServer = require('json-server');
 const server = jsonServer.create();
 const router = jsonServer.router('build/db/app.json');
@@ -34,6 +35,7 @@ server.use(function(req, res, next) {
   next();
 });
 
+server.use(cors());
 server.use(middlewares);
 server.use(router);
 
